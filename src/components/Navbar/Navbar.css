@@ -1,0 +1,126 @@
+/* 🌐 Navbar Base */
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  /* 🪟 Glass effect Light Mode */
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  padding: 12px 7%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* 🖼️ Logo */
+.navbar .logo {
+  width: 50px;
+  height: auto;
+  cursor: pointer;
+}
+
+/* 📋 Navigation Links */
+.navbar ul {
+  flex: 1;
+  list-style: none;
+  text-align: right;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  display: inline-block;
+  margin: 0 18px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbar ul li:hover {
+  color: #DB8DD0;
+}
+
+/* 🌙 Toggle Icon */
+.toggleIcon {
+  width: 50px;
+  cursor: pointer;
+  margin-left: 20px;
+  transition: transform 0.3s ease;
+  border-radius: 50%; /* rounded corners */
+  padding: 5px;
+}
+
+.toggleIcon:hover {
+  transform: rotate(20deg) scale(1.1);
+}
+
+/* 🌑 Dark Mode */
+.dark .navbar {
+  background: rgba(154, 166, 178, 0.4); /* semi-transparent bluish-gray */
+  color: #fff;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(154, 166, 178, 0.3);
+}
+
+.dark .navbar ul li {
+  color: #fff;
+}
+
+.dark .navbar ul li:hover {
+  color: #DB8DD0;
+}
+
+/* 📱 Responsive */
+@media (max-width: 992px) {
+  .navbar {
+    padding: 10px 5%;
+  }
+
+  .navbar ul li {
+    margin: 0 12px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+
+  .navbar ul {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .navbar ul li {
+    display: block;
+    margin: 8px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 8px 12px;
+  }
+
+  .logo {
+    width: 100px;
+  }
+
+  .toggleIcon {
+    width: 30px;
+  }
+}
