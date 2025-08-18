@@ -2,14 +2,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 100vh;       /* full screen height */
+  min-height: calc(100vh - var(--navbar-height)); /* full screen minus navbar */
+  margin-top: var(--navbar-height);               /* push down below navbar */
   padding: 0 10%;
-  background: #F2F9FF;
-  gap: 40px; /* space between logo & text */
+  background: #FFF9ED;
+  gap: 40px;
+  transition: all 0.4s ease-in-out;
 }
 
-/* Left side */
-.hero-left {
+
+/* Right side (Image) */
+.hero-right {
   flex: 1;
   display: flex;
   align-items: center;
@@ -17,8 +20,10 @@
 }
 
 .floating-logo {
-  width: 250px;
+  width: 350px;
+  height: 362px;
   animation: float 6s ease-in-out infinite;
+  transition: all 0.4s ease-in-out;
 }
 
 /* Floating animation */
@@ -28,13 +33,13 @@
   100% { transform: translateY(0px); }
 }
 
-/* Right side */
-.hero-right {
+/* Left side (Text) */
+.hero-left {
   flex: 1;
   text-align: left;
 }
 
-.hero-right h1 {
+.hero-left h1 {
   font-size: 2.5rem;
   font-weight: 800;
   color: #1f2937; /* dark gray */
@@ -42,11 +47,11 @@
   line-height: 1.2;
 }
 
-.hero-right h1 span {
-  color: #DB8DD0; /* blue highlight */
+.hero-left h1 span {
+  color: #DB8DD0; /* highlight */
 }
 
-.hero-right p {
+.hero-left p {
   font-size: 1.2rem;
   color: #4b5563; /* medium gray */
   line-height: 1.6;
@@ -56,24 +61,26 @@
 /* ✅ Responsive Design */
 @media (max-width: 900px) {
   .hero {
-    flex-direction: column;   /* stack vertically */
+    flex-direction: column-reverse; /* put image ABOVE text */
     text-align: center;
-    padding: 40px 5%;
+    padding: 100px 5% 40px; /* extra top padding for navbar */
   }
 
-  .hero-left {
+  .hero-right {
     margin-bottom: 20px;
   }
 
   .floating-logo {
-    width: 180px; /* smaller logo for mobile */
+    width: 250px; 
+    height: 262px;
+    animation: float 4s ease-in-out infinite; /* faster float */
   }
 
-  .hero-right h1 {
+  .hero-left h1 {
     font-size: 2rem;
   }
 
-  .hero-right p {
+  .hero-left p {
     font-size: 1rem;
     max-width: 100%;  /* allow full width */
   }
